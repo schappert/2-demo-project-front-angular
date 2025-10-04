@@ -1,6 +1,7 @@
 import { Injectable, signal, computed } from '@angular/core';
 import { Product } from '../models/product.model';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class ProductService {
   products = computed(() => this.productsSignal());
   private nextId = 1;
 
-  private apiUrl = 'http://localhost:3000/products';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

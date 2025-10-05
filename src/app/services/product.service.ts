@@ -17,7 +17,7 @@ export class ProductService {
 
   /** 🟢 Charge les produits depuis l’API */
   loadProducts() {
-    this.http.get<Product[]>(this.apiUrl).subscribe({
+    this.http.get<Product[]>(`${this.apiUrl}/products`).subscribe({
       next: (data) => {
         this.productsSignal.set(data);
         // Calcule le prochain ID (utile pour les ajouts locaux par la suite)
